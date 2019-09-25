@@ -103,7 +103,7 @@ img{
 .otherDetailsContent{
   display: flex;
   padding-left: 0;
-  width: 140%;
+  width: 100%;
 }
 
 .otherDetailsSpecificTitle{
