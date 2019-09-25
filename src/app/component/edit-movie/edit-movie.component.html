@@ -115,7 +115,7 @@
                 </div>
             </div>
             <div class="buttons">
-                <button type="submit" placeholder="send" class="btn btn-success"
+                <button [disabled]="form.form.invalid" type="submit" placeholder="send" class="btn btn-success"
                     (click)="send(ID.value, titl.value, yea.value, runtim.value, overvie.value, directo.value, genr.value)"
                     value="send">Edit</button>
                 <button class="btn btn-danger" (click)="closeModal()">Cancel</button>

@@ -4,7 +4,7 @@
         <img [src]="imageSource" alt="">
     </div>
     <div class="contentContainer">
-        <a class="titleResult">{{titleSource}}</a>
+        <a class="titleResult">{{titleSource | removeSpecialCharacters | titlecase}}</a>
         <span class="dateResult">{{dateSource}}</span>
     </div>
     <div class="iconsContainer">

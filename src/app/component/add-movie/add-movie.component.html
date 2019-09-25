@@ -25,8 +25,8 @@
 
                 <div class="year">
 
-                    <input (click)="isYear=false" name="year" type="date" class="form-control" required minlength="1" #year="ngModel"
-                        [(ngModel)]="newMovie.release_date" [max]="today" min="1900-01-01">
+                    <input name="year" type="date" class="form-control" required minlength="1" #year="ngModel"
+                        [(ngModel)]="newMovie.release_date" min="1900-01-01">
                     <label for="year"><b>Movie Date</b></label>
 
                     <div style="text-align: center;" *ngIf="year.errors?.required &&  year.touched"
@@ -131,7 +131,7 @@
                     </div>
                 </div>
             </div>
-            <button [disabled]="form.form.errors"  type="button" class="btn btn-success" (click)="send()">Add Movie</button>
+            <button [disabled]="form.form.invalid"  type="button" class="btn btn-success" (click)="send()">Add Movie</button>
         </form>
     </div>
 </div>

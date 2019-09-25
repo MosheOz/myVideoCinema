@@ -19,9 +19,10 @@ import { FormsModule } from '@angular/forms';
 import { DeleteAlertComponent } from './component/delete-alert/delete-alert.component';
 import { MovieLinkPipe } from './pipes/movie-link.pipe';
 import { AddMovieComponent } from './component/add-movie/add-movie.component';
+import { RemoveSpecialCharactersPipe } from './pipes/remove-special-characters.pipe';
 
 @NgModule({
-  declarations: [LayoutComponent, NavComponent, Page404Component, HomeComponent, MovieCardComponent, EditMovieComponent, MovieDetailsComponent, MinuteSecondPipe, DeleteAlertComponent, MovieLinkPipe, AddMovieComponent],
+  declarations: [LayoutComponent, NavComponent, Page404Component, HomeComponent, MovieCardComponent, EditMovieComponent, MovieDetailsComponent, MinuteSecondPipe, DeleteAlertComponent, MovieLinkPipe, AddMovieComponent, RemoveSpecialCharactersPipe],
   imports: [BrowserModule, AppRoutingModule, NgReduxModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [LayoutComponent]

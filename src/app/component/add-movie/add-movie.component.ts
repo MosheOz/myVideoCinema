@@ -30,7 +30,7 @@ export class AddMovieComponent implements OnInit {
     if (this.checkIsTitle(this.newMovie.title)) {
       return this.isTitle = true;
     }
-    if (this.newMovie.release_date.split('-')[0] < "1900") {
+    if (this.newMovie.release_date.split('-')[0] < "1900" || this.newMovie.release_date > this.today) {
       return this.isYear = true;
     };
     if (this.checkIsID(this.idForMovie)) {

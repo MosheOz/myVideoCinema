@@ -8,7 +8,7 @@
             </div>
             <div class="contentPoster">
                 <div class="title" dir="auto">
-                    {{mainTitle}}
+                    {{mainTitle | removeSpecialCharacters | titlecase }}
                     <span class="release_date">({{year}})</span>
                 </div>
 

@@ -42,6 +42,12 @@
 h2{
   text-align: center;
   font-family: 'Mansalva', cursive;
+  background: #807070;
+  color: rgb(10, 233, 10);
+  width: 80%;
+  margin: auto;
+  margin-bottom: 15px;
+  border-radius: 15px;
 }
 
 form {

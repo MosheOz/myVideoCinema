@@ -32,6 +32,7 @@ export class EditMovieComponent implements OnInit {
 
   public isYear: boolean = false;
   public movieForReplace: Movie
+  public today = new Date().toJSON().split('T')[0];
 
   constructor(private homeComponent: HomeComponent) { }
 
@@ -40,7 +41,7 @@ export class EditMovieComponent implements OnInit {
   }
 
   public send(id, title, year, runtime, overview, director, genre) {
-    if (year.split('-')[0] < "1900") {
+    if (year.split('-')[0] < "1900" || year > this.today) {
       return this.isYear = true;
     };
     this.homeComponent.editObjInStore(id, title, year, runtime, overview, director, genre);
