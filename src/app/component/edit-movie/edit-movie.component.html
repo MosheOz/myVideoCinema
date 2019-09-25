@@ -1,0 +1,125 @@
+<div id="myModal" class="modal-t">
+
+    <div class="modal-content-t">
+        <span class="close-t" (click)="closeModal()">&times;</span>
+
+        <h2>Edit Your Movie Here</h2>
+
+        <form #form="ngForm">
+            <div class="formContent">
+                <div>
+                    <input name="id" type="text" class="form-control" required minlength="1" [ngModel]="id"
+                        #ID="ngModel" hidden>
+                </div>
+
+
+                <div class="movieTitle">
+
+                    <input name="titl" type="text" class="form-control" minlength="1" [ngModel]="title" #titl="ngModel"
+                        required>
+                    <label for="title"><b>Movie Title</b></label>
+
+
+                    <div style="text-align: center;" *ngIf="titl.errors?.required && titl.touched" class="alert-danger">
+                        Title is required.
+                    </div>
+                </div>
+
+                <div class="year">
+
+                    <input name="yea" type="date" class="form-control" required minlength="1" #yea="ngModel"
+                        [ngModel]="release_date">
+                    <label for="year"><b>Movie Date</b></label>
+
+                    <div style="text-align: center;" *ngIf="yea.errors?.required &&  yea.touched" class="alert-danger">
+                        Year is required.
+                    </div>
+
+                    <div style="text-align: center;" *ngIf="isYear" class="alert-danger">
+                        Please enter valid date.
+                    </div>
+                </div>
+
+                <div class="runtime">
+
+                    <input name="runtim" type="text" class="form-control" required minlength="1" maxlength="3"
+                        #runtim="ngModel" [ngModel]="runtime" min="1" pattern="[0-9]*">
+                    <label for="runtime"><b>Movie Runtime (in minutes)</b></label>
+
+                    <div style="text-align: center;" *ngIf="runtim.errors?.required &&  runtim.touched"
+                        class="alert-danger">
+                        Runtime is required.
+                    </div>
+
+                    <div style="text-align: center;" *ngIf="runtim.errors?.maxlength &&  runtim.touched"
+                        class="alert-danger">
+                        Maximum length is 3 digits.
+                    </div>
+
+                    <div style="text-align: center;" *ngIf="runtim.errors?.pattern &&  runtim.touched"
+                        class="alert-danger">
+                        Please enter only numbers.
+                    </div>
+                </div>
+
+
+                <div class="overview">
+                    <input name="overvie" type="text" class="form-control" required minlength="20" #overvie="ngModel"
+                        [ngModel]="overview">
+                    <label for="overview"><b>Movie Overview</b></label>
+
+                    <div style="text-align: center;" *ngIf="overvie.errors?.required &&  overvie.touched"
+                        class="alert-danger">
+                        Overview is required.
+                    </div>
+
+                    <div style="text-align: center;" *ngIf="overvie.errors?.minlength &&  overvie.touched"
+                        class="alert-danger">
+                        Overview required minimum 20 letters.
+                    </div>
+                </div>
+
+                <div class="director">
+
+                    <input name="directo" type="text" class="form-control" required minlength="1" #directo="ngModel"
+                        [ngModel]="director" pattern="^[a-zA-Z_ ]*$">
+                    <label for="director"><b>Movie Director</b></label>
+
+                    <div style="text-align: center;" *ngIf="directo.errors?.required &&  directo.touched"
+                        class="alert-danger">
+                        Director is required.
+                    </div>
+
+                    <div style="text-align: center;" *ngIf="directo.errors?.pattern &&  directo.touched"
+                        class="alert-danger">
+                        Please enter valid name.
+                    </div>
+                </div>
+
+
+                <div class="genre">
+
+                    <input name="genr" type="text" class="form-control" required minlength="1" #genr="ngModel"
+                        [ngModel]="genres" pattern="^[a-zA-Z_ ]*$">
+                    <label for="genre"><b>Movie Genre</b></label>
+
+
+                    <div style="text-align: center;" *ngIf="genr.errors?.required &&  genr.touched"
+                        class="alert-danger">
+                        Genre is required.
+                    </div>
+
+                    <div style="text-align: center;" *ngIf="genr.errors?.pattern &&  genr.touched" class="alert-danger">
+                        Please enter valid genre.
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button type="submit" placeholder="send" class="btn btn-success"
+                    (click)="send(ID.value, titl.value, yea.value, runtim.value, overvie.value, directo.value, genr.value)"
+                    value="send">Edit</button>
+                <button class="btn btn-danger" (click)="closeModal()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="containerDiv">
+    <span style="display: none;">{{movieID}}</span>
+    <div class="imageContainer">
+        <img [src]="imageSource" alt="">
+    </div>
+    <div class="contentContainer">
+        <a class="titleResult">{{titleSource}}</a>
+        <span class="dateResult">{{dateSource}}</span>
+    </div>
+    <div class="iconsContainer">
+        <span class="icons" (click)="activeEditModal(movieID)"><i
+                class="fa fa-info"></i></span>
+        <span class="right">
+            <span class="icons" (click)="editMovie(movieID)"><i class="fa fa-pencil"></i></span>
+            <span class="icons"><i class="fa fa-trash-o" (click)="deleteMovie(movieID)"></i></span>
+        </span>
+    </div>
+</div>

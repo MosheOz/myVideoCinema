@@ -1,0 +1,137 @@
+<div id="myModal" class="modal-t" *ngIf="this.redux.getState().activeMovieAddModal==true">
+    <div class="modal-content-t">
+        <span class="close-t" (click)="this.redux.getState().activeMovieAddModal=false">&times;</span>
+        <h2>Add Your Movie Here</h2>
+        <form #form="ngForm">
+            <div class="formContent">
+
+                <div class="movieTitle">
+
+                    <input (click)="isTitle=false" name="title" type="text" class="form-control" required minlength="1"
+                        [(ngModel)]="newMovie.title" #title="ngModel">
+                    <label for="title"><b>Movie Title</b></label>
+
+
+                    <div style="text-align: center;" *ngIf="title.errors?.required &&  title.touched"
+                        class="alert-danger">
+                        Title is required.
+                    </div>
+
+                    <div style="text-align: center;" *ngIf="isTitle"
+                        class="alert-danger">
+                        Title already exist.
+                    </div>
+                </div>
+
+                <div class="year">
+
+                    <input (click)="isYear=false" name="year" type="date" class="form-control" required minlength="1" #year="ngModel"
+                        [(ngModel)]="newMovie.release_date" [max]="today" min="1900-01-01">
+                    <label for="year"><b>Movie Date</b></label>
+
+                    <div style="text-align: center;" *ngIf="year.errors?.required &&  year.touched"
+                        class="alert-danger">
+                        Year is required.
+                    </div>
+
+                    <div style="text-align: center;" *ngIf="isYear"
+                        class="alert-danger">
+                        Please enter valid date.
+                    </div>
+                </div>
+
+                <div class="runtime">
+
+                    <input name="runtime" type="text" class="form-control" required minlength="1" maxlength="3"
+                        #runtime="ngModel" [(ngModel)]="newMovie.runtime" min="1" pattern="[0-9]*">
+                    <label for="runtime"><b>Movie Runtime (in minutes)</b></label>
+
+                    <div style="text-align: center;" *ngIf="runtime.errors?.required &&  runtime.touched"
+                        class="alert-danger">
+                        Runtime is required.
+                    </div>
+
+                    <div style="text-align: center;" *ngIf="runtime.errors?.maxlength &&  runtime.touched"
+                        class="alert-danger">
+                        Maximum length is 3 digits.
+                    </div>
+
+                    <div style="text-align: center;" *ngIf="runtime.errors?.pattern &&  runtime.touched"
+                        class="alert-danger">
+                        Please enter only numbers.
+                    </div>
+                </div>
+
+                <div class="overview">
+                    <input name="overview" type="text" class="form-control" required minlength="20" #overview="ngModel"
+                        [(ngModel)]="newMovie.overview">
+                    <label for="overview"><b>Movie Overview</b></label>
+
+                    <div style="text-align: center;" *ngIf="overview.errors?.required &&  overview.touched"
+                        class="alert-danger">
+                        Overview is required.
+                    </div>
+
+                    <div style="text-align: center;" *ngIf="overview.errors?.minlength &&  overview.touched"
+                        class="alert-danger">
+                        Overview required minimum 20 letters.
+                    </div>
+                </div>
+
+                <div class="director">
+
+                    <input name="director" type="text" class="form-control" required minlength="1" #director="ngModel"
+                        [(ngModel)]="newMovie.director" pattern="^[a-zA-Z_ ]*$">
+                    <label for="director"><b>Movie Director</b></label>
+
+                    <div style="text-align: center;" *ngIf="director.errors?.required &&  director.touched"
+                        class="alert-danger">
+                        Director is required.
+                    </div>
+
+                    <div style="text-align: center;" *ngIf="director.errors?.pattern &&  director.touched"
+                        class="alert-danger">
+                        Please enter valid name.
+                    </div>
+                </div>
+
+                <div class="genre">
+
+                    <input name="genre" type="text" class="form-control" required minlength="1" #genre="ngModel"
+                        [(ngModel)]="newMovie.genres" pattern="^[a-zA-Z_ ]*$">
+                    <label for="genre"><b>Movie Genre</b></label>
+
+
+                    <div style="text-align: center;" *ngIf="genre.errors?.required &&  genre.touched"
+                        class="alert-danger">
+                        Genre is required.
+                    </div>
+
+                    <div style="text-align: center;" *ngIf="genre.errors?.pattern &&  genre.touched"
+                        class="alert-danger">
+                        Please enter valid genre.
+                    </div>
+                </div>
+
+                <div class="link">
+
+                    <input name="link" type="url" class="form-control" required minlength="1" #link="ngModel"
+                        [(ngModel)]="newMovie.backdrop_path" placeholder="https://www.google.com"
+                        pattern="(http:\/\/|https:\/\/)(www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$">
+                    <label for="link"><b>Movie Image Link</b></label>
+
+
+                    <div style="text-align: center;" *ngIf="link.errors?.required &&  link.touched"
+                        class="alert-danger">
+                        Link is required.
+                    </div>
+
+                    <div style="text-align: center;" *ngIf="link.errors?.pattern &&  link.touched" class="alert-danger">
+                        Please enter valid link.
+                    </div>
+                </div>
+            </div>
+            <button [disabled]="form.form.errors"  type="button" class="btn btn-success" (click)="send()">Add Movie</button>
+        </form>
+    </div>
+</div>

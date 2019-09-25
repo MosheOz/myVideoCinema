@@ -1,0 +1,44 @@
+<div id="myModal" class="modal-t">
+    <div class="modal-content-t">
+        <span class="close-t" (click)="close()">&times;</span>
+        <p style="display: none;">{{id}}</p>
+        <div class="contentSection">
+            <div class="poster">
+                <img [src]="imageSource" alt="">
+            </div>
+            <div class="contentPoster">
+                <div class="title" dir="auto">
+                    {{mainTitle}}
+                    <span class="release_date">({{year}})</span>
+                </div>
+
+                <div class="contentPosterDetails">
+                    <div class="overview">
+                        <span class="overviewTitle">Overview</span>
+                        <div class="overviewContent">
+                            {{overviewContent}}
+                        </div>
+                    </div>
+                    <div class="otherDetails">
+                        <span class="otherDetailsTitle">More</span>
+                        <ol class="otherDetailsContent">
+                            <li>
+                                <p class="otherDetailsSpecificTitle">{{director}}</p>
+                                <span class="otherDetailsSpecific">Director</span>
+                            </li>
+                            <li>
+                                <p class="otherDetailsSpecificTitle">{{runtime}}</p>
+                                <span class="otherDetailsSpecific">Runtime</span>
+                            </li>
+                            <li>
+                                <p class="otherDetailsSpecificTitle">{{genre}}</p>
+                                <span class="otherDetailsSpecific">Genre</span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

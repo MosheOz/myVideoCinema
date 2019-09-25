@@ -1,0 +1,48 @@
+.main{
+    padding-top: 30px;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hContaoner{
+    display: block;
+}
+.titleAndButton{
+    display: flex;
+    justify-content: space-around;
+}
+.titleName{
+    font-size: 30px;
+    font-weight: 900;
+    font-family: 'Mansalva', cursive;
+}
+span.right {
+    font-size: 33px;
+    cursor: pointer;
+    color: rgb(10, 233, 10);
+}
+
+.loading{
+    position: fixed; 
+    z-index: 1;
+    top: 50%;
+    left: 43%;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-size: 100% 100%; 
+}
+
+@media only screen and (max-width: 600px){
+    .loading{
+        top: 42%;
+        left: 25%;
+    }
+}
+
+
+

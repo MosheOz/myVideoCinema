@@ -1,0 +1,73 @@
+.modal-t {
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+    background-size: 100% 100%;  
+
+  }
+  
+.modal-content-t {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border: 1px solid #888;
+    width: 50%;
+    position: relative;
+}
+  
+.close-t {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 22px;
+    top: 0;
+}
+  
+.close-t:hover,
+.close-t:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h2{
+  text-align: center;
+  font-family: 'Mansalva', cursive;
+}
+
+form {
+  width: 80%;
+  margin: auto;
+}
+
+.btn {
+    width: 100%;
+    margin-top: 10px; 
+}
+
+.formContent{
+    padding-bottom: 25px;
+  }
+  
+  .ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; 
+  }
+    
+  .ng-invalid:not(form)  {
+      border-left: 5px solid #a94442; 
+  }
+
+@media screen and (max-width: 800px){
+  .modal-content-t{
+    width: 90%;
+  }
+}

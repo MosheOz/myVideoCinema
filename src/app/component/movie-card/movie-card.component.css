@@ -1,0 +1,80 @@
+.containerDiv{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    margin-top: 16px;
+    margin-left: 20px;
+    position: relative;
+    min-width: 350px;
+}
+
+.imageContainer{
+    max-width: 480px;
+    max-height: 278px;
+}
+
+.contentContainer{
+    padding: 6px 10px;
+    background: #fff;
+}
+
+.titleResult{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+img{
+    width: 100%;
+}
+
+span{
+    display: block;
+}
+
+.iconsContainer{
+    background-color: rgba(255,255,255,0.9);
+    position: absolute;
+    bottom: 59px;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    z-index: 1;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    visibility: hidden;
+}
+.containerDiv:hover .iconsContainer{
+    visibility: visible;
+}
+.icons{
+    height: 100%;
+    cursor: pointer;
+}
+.fa{
+    font-size: 29px;
+    padding:10px 5px 5px 5px;
+    color: #808080;
+}
+.fa:hover{
+    color: #000;
+}
+.right{
+    float: right;
+    display: flex;
+}
+@media screen and (max-width: 800px){
+    .containerDiv{
+        margin-left: 0px;
+    }
+    .iconsContainer{
+        visibility: visible;
+        background: rgba(255,255,255,0.8);
+    }
+}

@@ -1,0 +1,12 @@
+<div id="myModal" class="modal-t" *ngIf="this.redux.getState().activeDeleteModal==true">
+    <div class="modal-content-t">
+        <span class="close-t" (click)="this.redux.getState().activeDeleteModal=false">&times;</span>
+        <div class="content">
+            <p>Are You Sure?</p>
+            <div class="buttons">
+                <button class="btn btn-warning" (click)="delete()">Delete</button>
+                <button class="btn btn-danger" (click)="this.redux.getState().activeDeleteModal=false;">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

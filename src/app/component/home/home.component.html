@@ -1,0 +1,47 @@
+<div class="main">
+    <div class="titleAndButton">
+        <div class="titleName">Movies</div>
+        <div>
+            <span class="right" (click)="activeAddMovieModal()"><i style="color: rgb(10, 233, 10);"
+                    class="fa fa-plus"></i></span>
+        </div>
+    </div>
+
+    <div *ngIf="movies" class="flex">
+        <div *ngFor="let m of movies">
+            <app-movie-card movieID="{{m.id}}" imageSource="{{m.backdrop_path | movieLink}}" titleSource="{{m.title}}"
+                dateSource="{{m.release_date | date: 'MMMM d, y'}}">
+            </app-movie-card>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="movie">
+    <app-movie-details id="{{movie.id}}" imageSource="{{movie.poster_path|movieLink}}" mainTitle="{{movie.title}}"
+        year="{{movie.release_date | date: 'yyyy'}}" overviewContent="{{movie.overview}}" director="{{movie.director}}"
+        runtime="{{movie.runtime | minuteSecond}}" genre="{{movie.genres[0].name}}">
+    </app-movie-details>
+</div>
+
+<div *ngIf="this.redux.getState().activeEditModal == true;">
+    <app-edit-movie></app-edit-movie>
+</div>
+
+<div *ngIf="this.redux.getState().activeDeleteModal == true;">
+    <app-delete-alert></app-delete-alert>
+</div>
+
+<div>
+    <app-add-movie></app-add-movie>
+</div>
+
+<div *ngIf="showEditModal==true">
+    <app-edit-movie id="{{movieForEdit.id}}" title="{{movieForEdit.title}}" release_date="{{movieForEdit.release_date}}"
+        runtime="{{movieForEdit.runtime}}" overview={{movieForEdit.overview}} director="{{movieForEdit.director}}"
+        genres="{{movieForEdit.genres[0].name}}">
+    </app-edit-movie>
+</div>
+
+<div class="loading" *ngIf="this.redux.getState().isLoading == true || !this.movies">
+    <img src="../../../assets/images/loading.gif" alt="">
+</div>
